@@ -1,13 +1,15 @@
-<IfModule mod_rewrite.c>
-#Deny From All
 RewriteEngine on
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/$ api/main/home [QSA]
+RewriteRule ^api/(.*)$ index.php?api=$1 [END,PT,QSA]
 
-RewriteRule ^api/(.*)$ index.php?api=$1 [L,QSA]
-RewriteRule ^libs/(.*)$ /tools/phoxy/$0 [L,QSA]
-RewriteRule ^phoxy(.*).js$ /tools/phoxy/$0 [L,QSA]
+# This is not right. You should detect 404
+# Deprecated?
+RewriteRule ^ejs/(.*)$ $0 [END,QSA]
+RewriteRule ^js/(.*)$ $0 [END,QSA]
+RewriteRule ^images/(.*)$ $0 [END,QSA]
+RewriteRule ^css/(.*)$ $0 [END,QSA]
 
-
-</IfModule>
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ engine/hotstart.php?url=$1 [END,PT,QSA]
