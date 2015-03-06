@@ -20,4 +20,9 @@ class main extends api
                         ));
             
   }
+
+  protected function home()
+  {
+    return $this('api', 'd812', true)->Reserve();
+  }
 }
