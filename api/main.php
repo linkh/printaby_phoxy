@@ -9,7 +9,11 @@ class main extends api
 	$db = new dataBase();
 	$db->dbCreateToken();
 	return array("design"  =>  "body_page/main",
-			// "script" => "tools/jshint",
+      "script" =>
+      [
+        // "tools/jshint",
+        "url_hook",
+      ],
             "data" => array(
 							  "pg" => array('cap'  =>  "body_page/cap",
                               'top'    =>  "body_page/top",
