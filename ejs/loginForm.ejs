@@ -1,0 +1,34 @@
+        <form action='/api/login' method='post' id = "login_form">
+            <p id='body_login_text'>Логин</p>
+            <input name = 'login' type = 'text' size='30' />
+            <p id='body_login_text'>Пароль</p>
+            <input name = 'pass' type = 'text' size='30' />                         
+				<input type = 'submit' name='login_button' value='Войти' />
+				
+			
+            
+                     <!--<iframe id='loginProcess' name='loginProcess' style='width:0;height:0;border:0px solid #fff;'></iframe>-->
+           
+        </form>
+<% 
+    this.first(function()
+	{
+	
+	var form = this;
+	form.ajaxForm(function(resp)
+	{
+		debugger;
+		//if (resp.data.Add)
+			//phoxy.MenuCall('body_page/login', [resp.data]);
+		//else
+		//	alert("Создать не удалось. Такой сервер уже есть?")
+	});
+	this.find(".button").click(function()
+	{
+		debugger;
+		form.submit();
+	});
+	
+	
+	});
+%>

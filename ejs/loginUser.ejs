@@ -1,0 +1,33 @@
+				<table>
+              <tr>
+                <td>
+                  <p>Доброго дня, <%=this.userName%></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <form action='#login' method='post' enctype=  'multipart/form-data' target='loginProcess'>
+                  <input type = 'submit' name='button' value='Выйти' />
+                  </form>
+                </td>
+              </tr>
+            </table>   
+			
+			
+		<% 
+			this.first(function()
+			{
+			
+			var form = this;
+			form.ajaxForm(function(resp)
+			{
+					phoxy.MenuCall('login/logOut');
+			});
+			this.find(".button").click(function()
+			{
+				form.submit();
+			});
+			
+			
+			});
+		%>

@@ -1,0 +1,40 @@
+<div class = 'body_cart'>
+	<a class = 'menu_link' href = '#cart'>
+	<img class = 'cap_icon' src = '/img/tool/cart.ico'>	
+	<% if (this.num_items > 0)
+		{
+			if(this.num_items >= 5 && this.num_items <= 20)
+			{
+				%>
+				<p class = 'body_cart_text'>В вашей корзине <%= this.num_items%> товаров</p>
+				<%
+			}
+			else if (this.num_items % 10 ==  1)
+			{
+				%>
+				<p class = 'body_cart_text'>В вашей корзине <%= this.num_items%> товар</p>
+				<%
+			}
+			else if (this.num_items % 10 >= 2 && this.num_items % 10 <= 4)
+			{
+				%>
+				<p class = 'body_cart_text'>В вашей корзине <%= this.num_items%> товарa</p>
+				<%
+			}
+			else
+			{
+				%>
+				<p class = 'body_cart_text'>В вашей корзине <%= this.num_items%> товаров</p>
+				<%
+			}
+		}
+		else
+		{
+		%>	
+		<p class = 'body_cart_text'>В вашей корзине пока нет товаров</p>
+		<%
+		}
+		%>		
+	</a>
+</div>
+

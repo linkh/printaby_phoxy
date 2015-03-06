@@ -1,0 +1,52 @@
+<div class = "catalog_elem">
+<table class = "catalog_list_el">
+	<tr>
+		<!--<td rowspan = '4'><img src = '/img/items/test.png' ></td>-->
+		<td>
+		<a href = "http://printabu/#item?itemId=<%= this.item.prov_id%>">
+			<img src='<%= this.img[this.num]%>'>
+		</a>
+		</td>
+	</tr>
+	<tr>
+		<td>		
+		<a href = "http://printabu/#item?itemId=<%= this.item.prov_id%>">
+			<%= this.item.name.substr(9, 40)%>
+		</a>
+		</td>		
+	</tr>
+	<tr>
+		<td>
+		В наличии
+		<%=  %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<%= this.item.rrc %> руб.
+		</td>	
+		<td>
+			<form action='api/cart/add' method='post' enctype=  'multipart/form-data' target='loginProcess'>
+			<input type = 'hidden' name = 'id' value = '<%= this.item.prov_id %>'>
+			<input type = 'submit' name='add_cart_button' value='Купить' />
+			</form>
+		</td>
+	</tr>
+</table>
+</div>
+<% 
+this.first(function()
+{
+var form = this;
+form.ajaxForm(function(resp)
+{
+		phoxy.MenuCall('cart_menu');
+});
+this.find(".button").click(function()
+{
+	form.submit();
+});
+
+
+});
+%>

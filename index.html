@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<!--[if IE]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+
+  <style>
+   .chromeFrameInstallDefaultStyle {
+     width: 100%; /* default is 800px */
+     border: 5px solid blue;
+   }
+  </style>
+
+  <div id="prompt">
+  </div>
+
+  <script>
+   // The conditional ensures that this code will only execute in IE,
+   // Therefore we can use the IE-specific attachEvent without worry
+   window.attachEvent("onload", function() {
+     CFInstall.check({
+       mode: "inline", // the default
+       node: "prompt"
+     });
+   });
+  </script>
+<![endif]-->  
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<script type="text/javascript">
+/* This part not required. Its just example how to change setting live */
+phoxy =
+{
+  wait: true,
+  config: "/api/phoxy",
+  skip_initiation: true,
+  OnWaiting: function()
+  {
+    phoxy._EarlyStage.async_require[2] = "/tools/phoxy/libs/EJS/ejs.js";
+    phoxy._EarlyStage.EntryPoint();
+  },
+  OnInitialClientCodeComplete: function()
+  {
+	phoxy.MenuCall(location.pathname.substr(1) + location.search, undefined, function()
+    {
+    });
+  }
+}
+</script>
+<script
+  phoxy="main"
+  data-main="/tools/phoxy/phoxy"
+  src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js" type="text/javascript"></script>
+</head>
+<body>
+</body>
+
+</html>

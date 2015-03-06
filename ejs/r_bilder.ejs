@@ -1,0 +1,82 @@
+<div class = 'bilder_right_div'>
+	<table class = 'builder_menu'>
+		<tr>
+			<td> <div class=\"builder_menu_button\" type = 'file' id='builder_menu_add_img'/>IMG</div></td>
+			<!-- onchange='document.getElementById('myform').submit();' -->
+			
+			<td><div class=\"builder_menu_button\" id=\"builder_menu_add_text\">Добавить текст</div></td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>							
+						<td name = 'lolek'>111</td>
+						<td name = 'txt'><input id = 'elem_text' name = 'txt'></td>
+						<td name = 'lolek'>222</td>
+					</tr>
+					<tr>
+						<td><!--тут фильтры и стили теста-->
+							<select id = 'builder_menu_font'>
+								<option>times new roman</option>
+								<option>arial</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td name = 'img_txt'>opacity</td>
+						<td name = 'img_txt'><div id='elem_opacity'></div></td>
+					</tr>
+					<tr>						
+						<td name = 'txt'>font color</td>
+						<td name = 'txt'><div id='elem_font_color'></div></td>
+					</tr>
+					<!--
+					<tr>
+						<td name = 'txt'>font opacity</td>
+						<td name = 'txt'><div id='elem_font_opacity'></div></td>
+					</tr>
+					-->
+					<tr>
+						<td name = 'img_txt'>position</td>
+						<td name = 'img_txt'>left <input type='number' id = 'elem_position_left'/></td>
+						<td name = 'img_txt'>top<input type='number' id = 'elem_position_top'/></td>
+						<td name = 'img_txt'><button id = 'elem_position_center'>cnt</button></td>
+					</tr>
+					
+					
+					<!--
+					<tr>				
+						<td>резать</td>
+						<td>left <input type='number' id = 'elem_slice_left'/></td>
+						<td>right <input type='number' id = 'elem_slice_right'/></td>
+						<td>top <input type='number' id = 'elem_slice_top'/></td>
+						<td>bot<input type='number' id = 'elem_slice_bottom'/></td>
+					</tr>
+					-->
+					
+					
+					<tr>
+						<td id = 'elem_alarm' name = 'img'><img src = '/img/tool/alert.png'><p >Превышено разрешение картинки!</p></td>
+					</tr>
+					<tr>
+					<td name = 'help'><p>Этот текст призван помочь вам, ребят:)</p></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<ul id= 'builder_list'>						
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td><div class=\"builer_menu_button\" id=\"builder_menu_save\">Сохранить получившееся</div></td>
+			<td><div class=\"builer_menu_button\" id=\"builder_menu_send_to_sell\">на продажу</div></td>
+		</tr>
+		<tr>
+			<td><div class=\"builer_menu_button\" id=\"builder_menu_price\">Цена:</div></td>
+			<td><div class=\"builer_menu_button\" id=\"builder_menu_to_cart\"> В корзину</div></td>
+		</tr>
+	</table>	
+</div>

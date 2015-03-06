@@ -1,0 +1,12 @@
+<ul class = "menu_top_list">
+<%
+for (var i in this.items)
+{
+	var it = this.items[i];
+	
+	%>
+	<li class = "menu_top_list_el"><%= this.DeferRender("catalog_elem", {item:it, num:i, img:this.img}) %></li>
+	<%
+}
+%>
+</ul>

@@ -1,0 +1,70 @@
+<div class = 'cap_div'>
+	<ul class = 'cap_table' id = 'cap_table' border = '0'>
+			<li class = 'li_logo' id = "li_logo">
+				<a href = "#d812"><p class = 'cap_logo'> Digital812</p></a>
+				<!--<img src = 'img/tool/logo.png' width='200'> <!-- li class-->
+			</li>
+			<li class = 'body_login' id = 'body_login' style="display:none">
+				<%= 
+					//phoxy.DeferRender("login")
+				%>
+			</li>
+			<li class = "cap_phone">
+				<a href = "#contacts">
+					<img class = 'cap_icon' src = '/img/tool/phone.ico'>
+					<p>+7 (812) 922 23 55</br>
+					+7 (812) 922 23 88</p>
+				</a>
+			</li>
+			<li class = "cap_adress">
+				<a href = "#contacts">
+					<img class = 'cap_icon' src = '/img/tool/map.ico'>
+					<p>
+					Сенная площадь, Ефимова 4<br>
+					Ежедневно с 11 до 20
+					</p>
+				</a>
+			</li class = "cap_sear">
+			<li>
+				<input class = "cap_search" name = 'search' type = 'text' value = "search..."/>				
+			</li>
+			
+			<li class = 'body_сart' id = 'body_cart'>
+				<%= this.DeferRender("cart_menu") %>
+			</li>			
+	</ul>
+</div>
+
+<!--
+<div class = 'cap_div'>
+	<table class = 'cap_table' id = 'cap_table' border = '0'>
+		<tr>						
+			<td class = 'td_logo' style="width: 10px;">
+				<p class = 'cap_logo'> Digital812</p>
+				<!--<img src = 'img/tool/logo.png' width='200'> <!-- li class-- >
+			</td>
+			<td class = 'body_login' id = 'body_login' style="display:none">
+				< % = 
+					//phoxy.DeferRender("login")
+				%>
+			</td>
+			<td class = "cap_phone">
+				<p>+7 (812) 922 23 55</p>
+				<p>+7 (812) 922 23 88</p>
+			</td>
+			<td class = "cap_adress">
+				<p>
+				Сенная площадь, Ефимова 4</p>
+				<p>ежедневно с 11 до 20
+				</p>
+			</td class = "cap_sear">
+			<td>
+				<input class = "cap_search" name = 'searxh' type = 'text' value = "search..."/>				
+			</td>
+			
+			<td class = 'body_сart' id = 'body_cart'>
+				< %= this.DeferRender("cart_menu") %>
+			</td>			
+		</tr>		
+	</table>
+</div>

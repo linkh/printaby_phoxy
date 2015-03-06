@@ -1,0 +1,109 @@
+<%debugger%>
+<!--
+<div class = 'item_category'>
+	<a href = ''>Главная  </a>→<a href = ''> Планшеты  </a>→<a href = ''> Samsung  </a>→<a href = ''>Samsung Galaxy Note 8.0 N5100 16Gb white</a>
+</div>
+-->
+<div class = 'item_1level'>
+	<div id = 'item_img_div' class = "item_img_div">
+		<div id = 'item_cur_img'>
+			<img src = '<%= this.item.img[0].adr%>' >
+		</div>
+		<ul>
+			<%
+				for(key in this.item.img)
+				{
+					%>
+						<li>
+							<a href = '#item/showimg?img=<%=key%>&itemId=<%=this.itemId%>'>
+							<div class = 'item_img_list_div'>
+							<img src = '<%= this.item.img[key].adr %>'>
+							</div>
+							</a>
+						</li>
+					<%
+				}
+			%>
+		</ul>
+	</div>
+	<ul class = 'item_data_list'>	
+			<li>
+			<h1>
+				<%= this.item.name %>
+			<h1>
+			</li>
+			<li class = 'item_data_descr'>
+				<p>
+				Планшет ZIFRO ZT-10003G выполнен в стильном алюминиевом корпусе и оснащен матрицей с диагональю экрана 10,1" и разрешением HD 1280x800 точек. Редкий для планшетов однокристальный мощный 4-х ядерный процессор Samsung Exynos 4412 с тактовой частотой в 1,4 ГГц обеспечивает высокое быстродействие всех предустановленных приложений.
+				Объем оперативной памяти устройства составляет 2 Гб, что позволяет без проблем играть в игры и смотреть фильмы в высоком качестве Full HD. Встроенная память имеет объем в 16 Гб с возможностью расширения до 48 Гб при помощи microSD карты.</li>
+				</p>		
+			<li>
+				<div class = "item_buy_div">
+					<ul>
+						<li>
+						<span class = 'price'><%= this.item.rrc %>руб.<span> <!-- TODO add space between 3 sign -->
+						</li>			
+						<li>
+							<div class = 'item_avail'>
+							В наличии!
+							</div>
+						</li>
+						<li>
+						
+						<form action='api/cart/add' method='post' enctype=  'multipart/form-data' target='loginProcess' class = 'add_cart_form'>
+							<input type = 'hidden' name = 'id' value = '<%= this.item.prov_id %>'>
+							<input type = 'submit' name='add_cart_button' class = 'add_cart_button' value='Купить' />
+						</form>
+						</li>
+						<li>
+							Доступные цвета:
+						</li>
+				</ul>
+				</div>
+			</li>
+	</ul>
+</div>
+<div  class = 'item_descr'>
+	<div class = 'item_menu'>
+		<ul>
+			<li><a href = '#item/character'>Характеристики</a></li>
+			<!--<li><a href = '#item/accessories'>Аксесуары</a></li>
+			<li><a href = '#item/rewie'>Обзор</a></li>
+			<li><a href = '#item/backwards'>Отзывы</a></li>-->
+		</ul>	
+	</div>
+	<div id = "item_data">
+	<ul class = "item_char_list">
+		<%
+			for(key in this.item.descr)
+			{
+				%>
+					<li>
+						<%= this.item.descr[key].name_descr%>
+					</li>
+					<li>
+						<%= this.item.descr[key].descr%>
+					</li>
+				<%
+			}
+		%>
+	</ul>
+	</div>
+</div>
+
+<% 
+this.first(function()
+{
+var form = $(".add_cart_form");
+form.ajaxForm(function(resp)
+{
+		phoxy.MenuCall('cart_menu');
+});
+$(".add_cart_button").click(function()
+{
+	form.submit();
+});
+
+
+});
+%>

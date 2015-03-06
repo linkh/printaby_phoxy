@@ -1,0 +1,77 @@
+<!--
+include_once 'tools/login.php';
+-- >
+  <table class = 'body_table_right'>  
+    <tr>
+      <td>
+        <div class = 'body_cart'>
+          <a class = 'menu_link' href = '#cart'>
+            <p class = 'body_cart_text'>В вашей корзине пока нет товаров</p>
+          </a>
+        </div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <div class = 'body_user' id = 'body_user_form'>
+<%
+        if ( this.userId < 0 )
+        {
+%>        
+          <form action='/#authorisation' method='post' enctype=  'multipart/form-data' target='authorisation'>
+                       <p id='body_login_text'>Логин</p>
+            <input name = 'login' type = 'text' size='30' />
+                       <p id='body_login_text'>Пароль</p>
+            <input name = 'pass' type = 'text' size='30' />                         
+                         <label>
+                             <input type = 'submit' name='login_button' value='Войти' />
+               <input type='submit' name='register_button' value='Зарегистрироваться' />
+                         </label>
+                     </p>
+                     <!--<iframe id='loginProcess' name='loginProcess' style='width:0;height:0;border:0px solid #fff;'></iframe>-->
+           
+                 </form>
+<%         
+         }
+        else
+        {
+%>        
+            <table>
+              <tr>
+                <td>
+                  <p>Доброго дня, <%=this.userName%></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <form action='tools/processing_script/loginProcess.php' method='post' enctype=  'multipart/form-data' target='loginProcess'>
+                  <input type = 'submit' name='logout_button' value='Выйти' />
+                  </form>
+                </td>
+              </tr>
+            </table>          
+<%          
+        }
+%>
+        </div>
+      </td>
+    </tr>
+  
+<!-- TODO product list !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-- >
+    <tr>
+      <td>
+        <!--
+        <script type="text/javascript" src="http://vk.com/js/api/openapi.js?101"></script>
+        <!-- VK Widget -- >
+        
+        <div id="vk_groups"></div>
+        < %= 
+        phoxy.Defer('<script type="text/javascript"> VK.Widgets.Group("vk_groups", {mode: 2, width: "170", height: "400",  color1: "FFFFFF", color2: "E3DB44", color3: "00F13C"}, 20003922); </script>');
+        
+        % >
+        -- >
+      </td>
+    </tr>
+  </table>
+  -->

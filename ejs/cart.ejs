@@ -1,0 +1,57 @@
+<h3> Ваш  заказ:</h3>
+<table class = 'cart_table'>
+  <tr>
+  <!--
+    <td>
+      <p>Картинка</p>
+    </td>
+    <td>
+      <p>артикул</p>
+    </td>
+    <td>
+      <p>Количество</p>
+    </td>
+    <td>
+      <p>Цена</p>
+    </td>
+  </tr>
+  -->
+<%
+var k = 0;
+for (var i in this.items)
+{
+var it = this.items[i];
+%>
+  <tr>
+    <td style = "width:6%"><img src = '<%= this.items_img[k]%>' style = "width:90px; margin: 5px;"></td>
+	<td style = "width:60%"><p style = "vertical-align: top;
+margin: 10px;text-indent: 0px;"><%=it.name%></p></td>    
+    <td style = "padding:10px"><input type = 'number' value = '<%=it.num%>' min='0' step='1' style = "width:30px; float:right; margin:0 auto"></td>
+    <td style = "padding:10px"><p style = 'margin:0 auto;'><b><%=it.rrc%></b> руб.</p></td>
+    <td style = "padding:10px"><p style = 'color:red'>x</p></td>
+  </tr>
+  <%
+  k++;
+}
+%>
+</table>
+<div style = "display:flex; width:100%;"><a href = "#login"><button style = '
+font-size: 25px;
+margin: 15px 0px;
+text-decoration: none;
+display: inline-block;
+text-align: center;
+color: #fff;
+border: 1px solid #9c9c9c;
+border: 1px solid rgba(0, 0, 0, 0.3);
+text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+box-shadow: 0 0 .05em rgba(0,0,0,0.4);
+padding: 7px;
+border-radius: 15px;
+background-image: -webkit-linear-gradient(top, #bf0202, #ff0000);
+background-image: -moz-linear-gradient(top, #bf0202, #ff0000);
+background-image: -ms-linear-gradient(top, #bf0202, #ff0000);
+background-image: -o-linear-gradient(top, #bf0202, #ff0000);
+background-image: linear-gradient(to bottom, #850505, #ff0000);
+margin: 10px;
+float: right;'>Отправить заказ</button></a></div>

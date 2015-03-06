@@ -1,0 +1,136 @@
+<%
+	$(".body_login_div").show();
+	%>	
+	
+	<%
+	if (this.userId > 0 )
+	{
+	%>
+	          <table>
+              <tr>
+                <td>
+                  <p>Доброго дня, <%=userName%></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <form action='#login' method='post' enctype=  'multipart/form-data' target='loginProcess'>
+                <input type = 'submit' name='login_button' value='Выйти' />
+                  </form>
+                </td>
+              </tr>
+            </table>   
+		<%= 
+		//this.DeferRender("loginUser.ejs", {}) 
+		%>
+		
+		<% 
+			//debugger;
+			this.first(function()
+			{
+			
+			var form = this;
+			form.ajaxForm(function(resp)
+			{
+				//debugger;
+					phoxy.MenuCall('login/ejsLoginForm');
+			});
+			this.find(".button").click(function()
+			{
+				form.submit();
+			});
+			
+			
+			});
+		%>
+<%
+	}
+	else
+	{
+%>
+<button id = 'close_login' class = 'close_login'>close</button>
+<script src="//ulogin.ru/js/ulogin.js"></script>
+<!--<div class = 'uLogin' id="uLogin" data-ulogin="display=panel;fields=first_name,last_name;providers=vkontakte,google,twitter,mailru,facebook;hidden=other;redirect_uri=http%3A%2F%2Fdigital812.su"></div>-->
+
+	<div class='login_new_user'>
+		<form action='#cart/finish' method='post' id = "add_user_form" class = 'add_user_form'>
+            <p id='body_login_text'>Имя:</p>
+            <input name = 'login' type = 'text' size='30' />
+            <p id='body_login_text'>Почта:</p>
+            <input name = 'pass' type = 'text' size='30' />
+			<p id='body_login_text'>Телефон:</p>
+            <input name = 'pass' type = 'text' size='30' />
+			<p id='body_login_text'>Адрес:</p>
+            <input name = 'pass' type = 'text' size='30' />			
+			<input type="radio" name="deliv" value="a1"  style = "float:left" cheked>доставка<Br> 
+			<input type="rADIO" name="deliv" value="a2" style = "float:left">Самовывоз<Br> 
+				<input type = 'submit' name='add_user_button' id = 'add_user_button' class = 'add_user_button' value='Отправить!' />			  
+			
+            
+                     <!--<iframe id='loginProcess' name='loginProcess' style='width:0;height:0;border:0px solid #fff;'></iframe>-->
+           
+        </form>
+	</div>
+	<!--
+        <form action='/api/login/auth' method='post' id = "login_form">
+            <p id='body_login_text'>Логин</p>
+            <input name = 'login' type = 'text' size='30' />
+            <p id='body_login_text'>Пароль</p>
+            <input name = 'pass' type = 'text' size='30' />                         
+				<input type = 'submit' name='login_button' value='Войти' />
+				
+			
+            
+                     <!--<iframe id='loginProcess' name='loginProcess' style='width:0;height:0;border:0px solid #fff;'></iframe>-- >
+           
+        </form>
+		--!>
+<% 
+	//debugger;
+    this.first(function()
+	{
+	
+	var form = $(".add_user_form");
+	form.ajaxForm(function(resp)
+	{
+			phoxy.MenuCall('cart_menu');
+	});
+	$(".add_user_button").click(function()
+	{
+		form.submit();
+	});
+	
+	var form = this;
+	form.ajaxForm(function(resp)
+	{
+		if (resp[16] != '-')//resp.data.auth)
+			{
+				//debugger;
+				$(".body_login_div").hide();
+				//phoxy.MenuCall('login/ejsUserInfo', [resp.data, userName = '123']);
+				phoxy.MenuCall('cart/finish', [resp.data, userName = '123']);
+			}
+		else
+			alert("Создать не удалось. Такой сервер уже есть?")
+	});
+	//debugger;
+	this.find(".button").click(function()
+	{
+		//debugger;
+		form.submit();
+	});	
+	$("#close_login").click(function()
+	{
+		//debugger;
+		$(".body_login_div").hide();
+	});
+	
+	});
+%>
+
+<%=
+//this.DeferRender("loginForm.ejs", {}) 	
+%>
+<%
+	}
+%>

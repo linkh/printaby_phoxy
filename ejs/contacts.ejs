@@ -1,0 +1,51 @@
+<div>
+<h1>Контакты</h1>
+<p>
+Адрес:	
+СПб, Сенная площадь, 
+БЦ "Мир", ул. Ефимова, 4а
+</p>
+
+<p>
+Режим работы:	Ежедневно с 11:00 до 20:00
+</p>
+
+
+<div id="mymap" style = 'width:600px;height:350px; padding-left:30px'></div>
+<%
+this.first(function()
+{
+	this.find('#mymap').before(
+		'<script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=QqChGkZCxJoUqHoFYt4VUDFt-p4PtwmO&width=600&height=350&id=mymap"></script>');
+	// we all love them
+});
+%>
+
+<p>
+Главный вход в Бизнес-Центр "МИР", налево 30 метров. Рады видеть вас!
+</p>
+<p class='content_text'>Вы можете в любой момент отправить письмо в нашу службу поддержки по адресу 
+	<a href="mailto:info@digital812.su?subject=Feedback"> info@digital812.su</a> <!--//TODO.-->
+	Наши специалисты всегда готовы помочь Вам решить любую проблему и ответить на все интересующие вас вопросы.</p>
+
+<p class='content_text'> Если вопрос не терпит отлагательств, то вы можете позвонить по номерам <b>+7 (812) 922 23 55 </b>и <b>+7 (812) 922 23 88</b> </p>
+
+<!--
+<h3 class='content_head'>Написать сразу</h3>
+
+<form action = 'tools/processing_script/contactProcess.php'  method='post' enctype=	'multipart/form-data' target='contactProcess'>
+
+	<p class='content_text'>Также Вы можете воспользоваться нашей формой для контактов.</p>
+	
+	<textarea class='content_problem'  name='problem' onfocus='content_problem_in(this)' onblur='content_problem_out(this)' >Опишите Вашу проблему</TEXTAREA>
+	
+	<p class='content_text'>Пожалуйста, укажите ваш e-mail для связи.</p>
+	
+	<input class = 'content_mail' type='text' name='user_mail' value='Почта' onfocus='content_mail_in(this)' onblur='content_mail_out(this)' > <!-- //TODO name = email, type = email? - ->
+	
+	<label>
+		<input class = 'content_submit' type = 'submit' name='contact_button' value='Отправить' >
+	</label>
+</form>
+-->
+</div>
