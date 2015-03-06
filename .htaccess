@@ -10,6 +10,6 @@ RewriteRule ^js/(.*)$ $0 [END,QSA]
 RewriteRule ^images/(.*)$ $0 [END,QSA]
 RewriteRule ^css/(.*)$ $0 [END,QSA]
 
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^(.*)$ engine/hotstart.php?url=$1 [END,PT,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.html [END,PT,QSA]
